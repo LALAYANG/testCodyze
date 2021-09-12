@@ -22,4 +22,4 @@ jobs:
       - name: test a file
         run:  |
           export CODYZE_VERSION=1.4.1
-          codyze-${CODYZE_VERSION}/bin/codyze -c -o - -s testCodyze.java
+           codyze-${CODYZE_VERSION}/bin/codyze -c -o - -m codyze-${CODYZE_VERSION}/mark -s testCodyze.java
