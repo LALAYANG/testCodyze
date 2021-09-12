@@ -1,0 +1,25 @@
+name: build
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "11"
+      - name: Install codyze
+        run: |
+          export CODYZE_VERSION=1.4.1
+          wget https://github.com/Fraunhofer-AISEC/codyze/releases/download/v${CODYZE_VERSION}/codyze-${CODYZE_VERSION}.zip && unzip codyze-${CODYZE_VERSION}.zip          
+      - name: Check compliance
+        run: |
+          export CODYZE_VERSION=1.4.1
+          codyze-${CODYZE_VERSION}/bin/codyze -c -o - -m codyze-${CODYZE_VERSION}/mark -s src/main/java  
+      - name: test a file
+        run:  |
+          export CODYZE_VERSION=1.4.1
+          codyze-${CODYZE_VERSION}/bin/codyze -c -o - -s testCodyze.java
