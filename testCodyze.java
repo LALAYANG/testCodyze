@@ -19,11 +19,7 @@ public class Arith
 		BigDecimal b2 = BigDecimal.valueOf(v2);
 		return b1.subtract(b2).doubleValue();
 	}
-	//精确的 乘法运算
-	public static double mul(double v1, double v2)
-	{
-		BigDecimal b1 = BigDecimal.valueOf(v1);
-		BigDecimal b2 = BigDecimal.valueOf(v2);
+
 		return b1.multiply(b2).doubleValue();
 	}
 	//提供（相对）精确的除法运算，当发生除不尽的情况时
@@ -31,9 +27,7 @@ public class Arith
 	public static double div(double v1, double v2)
 	{
 		BigDecimal b1 = BigDecimal.valueOf(v1);
-		BigDecimal b2 = BigDecimal.valueOf(v2);
-		return b1.divide(b2, DEF_DIV_SCALE, BigDecimal.ROUND_HALF_UP).doubleValue();
-	}	
+	
 	
 	public static void main(String[] args)
 	{
